@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>3D Cylinder Gauge</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="cylinder">
+		<div class="cylinder-rear"></div>
+		<div class="liquid"></div>
+		<div class="cylinder-front"></div>
+		<div class="value-box">
+			<span class="value">100</span>
+		</div>
+	</div>
+
+	<input type="range" id="range" min="0" max="100" value="100">
+
+	<script>
+		const liquid = document.querySelector('.liquid');
+		const range = document.querySelector('#range');
+		const value = document.querySelector('.value');
+		range.addEventListener('change', (e) => {
+			liquid.style.height = `${range.value}%`;
+			value.innerText = range.value;
+		});
+	</script>
+</body>
+</html>
